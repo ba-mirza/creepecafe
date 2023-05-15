@@ -15,7 +15,7 @@ const PARAMS: HttpParams = new HttpParams({
 export class ApiService {
 
   private readonly API_KEY: string = "a2998a3f"
-  private readonly URL: string = "http://www.omdbapi.com/?s=inception&apikey=a2998a3f"
+  private readonly URL: string = "https://www.omdbapi.com/?s=inception&apikey=a2998a3f"
 
   constructor(private http: HttpClient) {}
 
@@ -24,7 +24,7 @@ export class ApiService {
   }
 
   getMovieById(id: string): Observable<any> {
-    return this.http.get(`http://www.omdbapi.com/?i=${id}&apikey=${this.API_KEY}`)
+    return this.http.get(`https://www.omdbapi.com/?i=${id}&apikey=${this.API_KEY}`)
   }
 
   searchGetMovie(term: string): Observable<any> {
@@ -33,7 +33,7 @@ export class ApiService {
     }
 
     return this.http.get(
-      `http://www.omdbapi.com/?s=${term}&apikey=${this.API_KEY}`,
+      `https://www.omdbapi.com/?s=${term}&apikey=${this.API_KEY}`,
       {params: PARAMS.set('search', term)}
     )
   }
