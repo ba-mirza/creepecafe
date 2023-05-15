@@ -1,0 +1,45 @@
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Poster</th>
+    <th scope="col">Title</th>
+    <th scope="col">Year</th>
+  </tr>
+  </thead>
+  <tbody>
+  <ng-container *ngIf="moviesProps">
+    <tr class="click" (click)="openDetails(movies.imdbID)" *ngFor="let movies of moviesProps['Search']; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>
+        <img
+          src="{{movies.Poster}}"
+          class="me-2"
+          style="width: 100px"
+        />
+      </td>
+      <td><ngb-highlight [result]="movies.Title"></ngb-highlight></td>
+      <td><ngb-highlight [result]="movies.Year"></ngb-highlight></td>
+    </tr>
+  </ng-container>
+  <ng-container *ngIf="favoriteMoviesProps">
+    <tr class="click" (click)="openDetails(movies.imdbID)" *ngFor="let movies of favoriteMoviesProps; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>
+        <img
+          src="{{movies.Poster}}"
+          class="me-2"
+          style="width: 100px"
+        />
+      </td>
+      <td><ngb-highlight [result]="movies.Title"></ngb-highlight></td>
+      <td><ngb-highlight [result]="movies.Year"></ngb-highlight></td>
+      <td><button (click)="deleteFromFavorites(movies.Title)" class="btn-close"></button></td>
+    </tr>
+  </ng-container>
+  </tbody>
+</table>
+
+<ng-template #notFound>
+  <h1>Not Found</h1>
+</ng-template>

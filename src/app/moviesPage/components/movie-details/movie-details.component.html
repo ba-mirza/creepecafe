@@ -1,0 +1,27 @@
+<div class="detail">
+  <p-card header="{{(movieDetail$ | async)?.Title}}" subheader="Director: {{(movieDetail$ | async)?.Director}}" [style]="{ width: '360px' }">
+    <ng-template pTemplate="header">
+      <img alt="Card" src="{{(movieDetail$ | async)?.Poster}}" />
+    </ng-template>
+    <div style="font-weight: bold; margin-bottom: 0.2rem">
+      Description
+    </div>
+    <p>
+      {{(movieDetail$ | async)?.Plot}}
+    </p>
+    <span style="font-weight: bold; color: #ef6d00">Rating: {{(movieDetail$ | async)?.imdbRating}}</span>
+    <div>
+      <h5 style="margin-top: 1rem">Actors:</h5>
+      <div pTooltip="{{(movieDetail$ | async)?.Actors}}">
+        <input style="padding: 0.5rem; width: 100%" value="{{(movieDetail$ | async)?.Actors}}" type="text" disabled>
+      </div>
+    </div>
+    <ng-template pTemplate="footer">
+      <div style="display: flex; justify-content: space-between">
+        <button class="btn btn-lg btn-outline-primary" (click)="addToFavorites(movieDetail$)">Add to Favorites</button>
+        <button class="btn btn-lg btn-outline-primary" (click)="backTo()">Back to</button>
+      </div>
+      <p-messages></p-messages>
+    </ng-template>
+  </p-card>
+</div>

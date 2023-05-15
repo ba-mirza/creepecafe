@@ -1,0 +1,10 @@
+.wrapper {
+  margin: 3rem auto;
+  width: 1440px;
+  min-width: 600px;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+  }
+}

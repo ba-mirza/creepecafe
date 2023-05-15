@@ -1,0 +1,19 @@
+<div class="table">
+
+  <h1>List of movies</h1>
+
+  <div class="wrapper">
+    <form>
+      <div class="mb-3 row">
+        <label for="table-filtering-search" class="col-xs-3 col-sm-auto col-form-label">Search:</label>
+        <div class="col-xs-3 col-sm-auto">
+          <input #movieSearchInput id="table-filtering-search" class="form-control" type="text" />
+        </div>
+      </div>
+    </form>
+    <div>
+      <button (click)="goToFavorites()" class="btn btn-lg btn-outline-primary">Favorites ⭐</button>
+    </div>
+  </div>
+  <app-movies-table (details)="goToDetails($event)" [movies]="movies"></app-movies-table>
+</div>
